@@ -24,8 +24,8 @@ class RemitaServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->publishes([
-            __DIR__.'/../config/remita.php' => config_path('remita.php'),
-        ], 'config');
+            realpath(__DIR__.'/../config/remita.php') => config_path('remita.php'),
+        ]);
     }
 
     public function register(): void
