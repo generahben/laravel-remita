@@ -2,7 +2,7 @@
 
 /*
  *
- * (c) Generah Ben <generahben@gmail.com>
+ * @author (c) Generah Ben <generahben@gmail.com>
  *
  * This file is part of the Laravel Remita Package
  *

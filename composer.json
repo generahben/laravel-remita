@@ -1,6 +1,6 @@
 {
     "name": "generahben/laravel-remita",
-    "description": "A laravel package to seamlessly integrate Remita payment gateway",
+    "description": "A Laravel package to conveniently integrate Remita payment gateway",
     "type": "library",
     "keywords": [
         "php",
@@ -30,5 +30,15 @@
             "name": "Generah Ben",
             "email": "generahben@gmail.com"
         }
-    ]
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Generahben\\Remita\\Providers\\RemitaServiceProvider"
+            ],
+            "aliases": {
+                "Remita": "Generahben\\Remita\\Facades\\Remita"
+            }
+        }
+    }
 }
