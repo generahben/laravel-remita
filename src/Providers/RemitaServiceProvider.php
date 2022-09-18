@@ -25,12 +25,11 @@ class RemitaServiceProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__.'/../config/remita.php' => config_path('remita.php'),
-        ]);
+        ], 'config');
     }
 
     public function register(): void
     {
-        // Register a class in the service container
         $this->app->bind('remita', function ($app) {
             return new Remita();
         });
