@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Generahben\Remita\Providers;
+namespace Generahben\Remita;
 
 
 use Generahben\Remita\Remita;
@@ -24,7 +24,7 @@ class RemitaServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->publishes([
-            realpath(__DIR__.'/../config/remita.php') => config_path('remita.php'),
+            __DIR__.'/../config/remita.php' => config_path('remita.php'),
         ]);
     }
 
