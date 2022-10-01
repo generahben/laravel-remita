@@ -22,7 +22,8 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Generahben\\Remita\\": "src/"
+            "Generahben\\Remita\\": "src/",
+            "Generahben\\Remita\\Test\\": "tests/"
         }
     },
     "authors": [
@@ -40,5 +41,9 @@
                 "Remita": "Generahben\\Remita\\Facades\\Remita"
             }
         }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5",
+        "orchestra/testbench": "^7.7"
     }
 }

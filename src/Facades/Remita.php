@@ -12,11 +12,15 @@ use Illuminate\Support\Facades\Facade;
  *
  * This file is part of Laravel Remita Package
  *
+ * For the full copyright and license information, please view the LICENSE
+ * file distributed with this source code.
+ *
  * @author (c) Generah Ben <generahben@gmail.com>
  * @since 9/18/2022
  *
- * For the full copyright and license information, please view the LICENSE
- * file distributed with this source code.
+ * @method static array generateRRR(array $body = [])
+ * @method static array getTransactionStatusByRRR(string $rrr);
+ * @see \Generahben\Remita\Remita
  */
 class Remita extends Facade
 {

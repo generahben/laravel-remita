@@ -24,7 +24,7 @@ class RemitaServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->publishes([
-            __DIR__.'/../../config/remita.php' => config_path('remita.php'),
+            __DIR__ . '/../../config/remita.php' => config_path('remita.php'),
         ]);
     }
 
@@ -33,5 +33,7 @@ class RemitaServiceProvider extends ServiceProvider
         $this->app->bind('remita', function ($app) {
             return new Remita();
         });
+
+        $this->mergeConfigFrom(__DIR__ . '/../../config/remita.php', 'remita');
     }
 }
