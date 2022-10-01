@@ -51,9 +51,14 @@ class RemitaFunctionTest extends TestCase
 
     public function test_get_transaction_status(): void
     {
-        $res = Remita::getTransactionStatusByRRR("220009025566");
-        $this->assertEquals('220009025566', $res['RRR']);
-        $this->assertArrayHasKey('message', $res);
+        $res1 = Remita::getTransactionStatusByRRR('220009025566');
+        $res2 = Remita::getTransactionStatusByOrderId('NPT-6789');
+
+        $this->assertEquals('220009025566', $res1['RRR']);
+        $this->assertArrayHasKey('message', $res1);
+
+        $this->assertEquals('NPT-6789', $res2['orderId']);
+        $this->assertArrayHasKey('message', $res2);
     }
 
     private function setGenerateInvoiceRequestBody(): void

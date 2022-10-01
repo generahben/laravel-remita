@@ -20,6 +20,8 @@ use Illuminate\Support\Facades\Facade;
  *
  * @method static array generateRRR(array $body = [])
  * @method static array getTransactionStatusByRRR(string $rrr);
+ * @method static array getTransactionStatusByOrderId(string $orderId);
+ *
  * @see \Generahben\Remita\Remita
  */
 class Remita extends Facade

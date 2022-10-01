@@ -60,9 +60,26 @@ class Remita
      */
     public function getTransactionStatusByRRR(string $rrr): array
     {
-        $this->hashFormula = $rrr. Config::get('remita.api_key') . Config::get('remita.merchant_id');
-
+        $this->setTransactionStatusHashFormula($rrr);
         $url = sprintf(EndPoint::TRANSACTION_STATUS_BY_RRR->value, Config::get('remita.consumer_key'), $rrr, $this->getApiHash($this->hashFormula));
+
+        $res = $this->client->get($url, [
+            'headers' => [
+                'Authorization' => $this->getRequestAuthorization()
+            ]
+        ]);
+
+        return $this->response($res);
+    }
+
+    /**
+     * @throws GuzzleException
+     */
+    public function getTransactionStatusByOrderId(string $orderId): array
+    {
+        $this->setTransactionStatusHashFormula($orderId);
+
+        $url = sprintf(EndPoint::TRANSACTION_STATUS_BY_ORDER_ID->value, Config::get('remita.consumer_key'), $orderId, $this->getApiHash($this->hashFormula));
 
         $res = $this->client->get($url, [
             'headers' => [
@@ -89,6 +106,11 @@ class Remita
     private function response(\Psr\Http\Message\ResponseInterface $res): array
     {
         return json_decode($res->getBody()->getContents(), true);
+    }
+
+    private function setTransactionStatusHashFormula(string $orderIdOrRRR): void
+    {
+        $this->hashFormula = $orderIdOrRRR . Config::get('remita.api_key') . Config::get('remita.merchant_id');
     }
 
 }
